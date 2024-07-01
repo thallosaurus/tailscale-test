@@ -12,10 +12,10 @@ jobs:
     steps:
       - name: Tailscale
         uses: tailscale/github-action@v2
-          with:
-            oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
-            oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
-            tags: tag:ci
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
 
       - name: Setup Nomad
         uses: lucasmelin/setup-nomad@v2.0.0
