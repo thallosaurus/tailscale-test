@@ -12,8 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          echo ${{ secrets.TS_OAUTH_CLIENT_ID }}
-          echo ${{ secrets.TS_OAUTH_SECRET }}
+          echo ${{ vars.TS_OAUTH_CLIENT_ID }}
+          echo ${{ vars.TS_OAUTH_SECRET }}
 
       - name: Tailscale
         uses: tailscale/github-action@v2
