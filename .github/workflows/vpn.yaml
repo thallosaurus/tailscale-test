@@ -15,7 +15,7 @@ jobs:
         with:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
-          tags: tag:ci
+          #tags: tag:ci
 
       - name: Setup Nomad
         uses: lucasmelin/setup-nomad@v2.0.0
