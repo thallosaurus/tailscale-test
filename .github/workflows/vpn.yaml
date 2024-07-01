@@ -1,0 +1,23 @@
+name: Connect to VPN
+run-name: Connect to VPN
+on: [push]
+
+env:
+  NOMAD_ADDR: ${{ secrets.NOMAD_ADDR }}
+  NOMAD_TOKEN: ${{ secrets.NOMAD_TOKEN }}
+
+jobs:
+  deploy-nomad:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tailscale
+        uses: tailscale/github-action@v2
+          with:
+            oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+            oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+            tags: tag:ci
+
+      - name: Setup Nomad
+        uses: lucasmelin/setup-nomad@v2.0.0
+      - name: Connect to Nomad
+        run: nomad status
