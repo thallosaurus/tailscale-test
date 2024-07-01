@@ -18,8 +18,7 @@ jobs:
       - name: Tailscale
         uses: tailscale/github-action@v2
         with:
-          oauth-client-id: ${{ vars.TS_OAUTH_CLIENT_ID }}
-          oauth-secret: ${{ vars.TS_OAUTH_SECRET }}
+          authkey: ${{ secrets.TS_AUTHKEY }}
           #tags: tag:ci
 
       - name: Setup Nomad
