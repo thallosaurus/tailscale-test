@@ -11,15 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          echo ${{ vars.TS_OAUTH_CLIENT_ID }}
-          echo ${{ vars.TS_OAUTH_SECRET }}
+      #- run: |
+      #    echo ${{ vars.TS_OAUTH_CLIENT_ID }}
+      #    echo ${{ vars.TS_OAUTH_SECRET }}
 
       - name: Tailscale
         uses: tailscale/github-action@v2
         with:
-          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
-          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          oauth-client-id: ${{ vars.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ vars.TS_OAUTH_SECRET }}
           #tags: tag:ci
 
       - name: Setup Nomad
